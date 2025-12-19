@@ -4,9 +4,9 @@
 
 | Image | Goal | Benefit |
 |---------------------|------|---------|
-| **Image 1**         | ![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmd5l1MASeIm5lclMX-AWGWD16UDfJKq6Adg&s)| Image showing computer science |
-| **Image 2**         |![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6wmrEKqAJIlsu_B2ZBGUVvsx3IX8dwTFirQ&s)| Image showing a chip gold board |
-| **Image 3**         |![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdijLmmVMFmLGZVtydj2MXZPHumUeXYMJCOg&s) | Image showing colourful cubes in relation to computer programming |
+| **Image &nbsp; 1**| ![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmd5l1MASeIm5lclMX-AWGWD16UDfJKq6Adg&s)| Image showing computer science |
+| **Image &nbsp; 2**         |![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6wmrEKqAJIlsu_B2ZBGUVvsx3IX8dwTFirQ&s)| Image showing a chip gold board |
+| **Image &nbsp; 3**|![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdijLmmVMFmLGZVtydj2MXZPHumUeXYMJCOg&s) | Image showing colourful cubes in relation to computer programming |
 
 
 
