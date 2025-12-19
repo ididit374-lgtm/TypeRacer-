@@ -2,6 +2,8 @@
 
 ![Computer Image](https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80)
 
+<img src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80" width="200" title="Zeecomputerlovittt" alt="Ilovezeecomputerrrrr"/>
+
 # User Stories
 ----
 ✅ Six User Stories + Acceptance Criteria
