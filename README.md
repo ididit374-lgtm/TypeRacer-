@@ -6,6 +6,7 @@
 
 
 **1. Typing Speed Measurement**
+
 **User Story:** As a user, I want to take a typing speed test so that I can measure my current WPM and track my improvement.
 
 **Acceptance Criteria**
@@ -23,6 +24,7 @@
 
 
 **2. Clear Instructions**
+
 **User Story:** As a user, I want clear instructions before starting the test so that I know how it works.
 
 **Acceptance Criteria**
@@ -38,6 +40,7 @@
 
 
 **3. Simple Test Interface**
+
 **User Story:** As a user, I want a simple and intuitive interface so that I can take the test easily.
 
 **Acceptance Criteria**
@@ -55,6 +58,7 @@
 
 
 **4. Difficulty Selection**
+
 **User Story:** As a user, I want to choose a difficulty level so that the test matches my ability.
 
 **Acceptance Criteria**
@@ -70,6 +74,7 @@
 
 
 **5. Cross‑Device Compatibility**
+
 **User Story:** As a user, I want the test to work on any device so that I can practice anywhere.
 
 **Acceptance Criteria**
@@ -85,6 +90,7 @@
 
 
 **6. Accurate Results**
+
 **User Story:** As a user, I want accurate results so that I can trust my performance metrics.
 
 **Acceptance Criteria**
