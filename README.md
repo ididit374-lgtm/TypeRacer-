@@ -1,5 +1,16 @@
 # TypeRacer-
 
+#**IMG AND TABLE PRACTICE**
+
+| Image | Goal | Benefit |
+|-----------|------|---------|
+| **Visitor** | I want to clearly understand what the "Prevent" strategy is. | So that I can understand its role in community safety. |
+| **Concerned Citizen** | I want to recognize the signs of radicalisation. | So that I can identify if someone I know needs help. |
+| **Reporter** | I want to find the specific contact details for my local council. | So that I can report a concern to the correct authority quickly. |
+| **Mobile User** | I want to access the site on my phone. | So that I can look up information while away from a computer. |
+| **Visually Impaired User** | I want the site to use high-contrast colours. | To ensure the text is legible and accessible. |
+
+
 ![Computer Image](https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80)
 
 <img src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80" width="600" title="Zeecomputerlovittt" alt="Ilovezeecomputerrrrr"/>
