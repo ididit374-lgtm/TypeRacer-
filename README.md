@@ -9,6 +9,7 @@
 **User Story:** As a user, I want to take a typing speed test so that I can measure my current WPM and track my improvement.
 
 **Acceptance Criteria**
+
 test starts immediately after clicking “Start”
 
 timer begins on first keystroke
