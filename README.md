@@ -4,6 +4,8 @@
 
 <img src="https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80" width="600" title="Zeecomputerlovittt" alt="Ilovezeecomputerrrrr"/>
 
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR910ShFB2zzJvwAPKKN8IdEDlEqllNW464Q&s" width="700">
+
 # User Stories
 ----
 ✅ Six User Stories + Acceptance Criteria
