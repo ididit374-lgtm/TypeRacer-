@@ -102,3 +102,131 @@
 - total errors and corrected errors are displayed
   
 - results reflect the exact text typed
+
+---
+
+## ✅ Product Backlog (Prioritized)
+
+| Priority | Feature | Description |
+|---------|---------|-------------|
+| High | Core typing test engine | Timer, input tracking, text rendering |
+| High | Results screen | WPM, accuracy, errors, difficulty |
+| High | Instructions page | Clear explanation of how the test works |
+| Medium | Difficulty selection | Beginner / Intermediate / Advanced |
+| Medium | Responsive layout | Works on desktop, tablet, mobile |
+| Medium | Error highlighting | Real‑time feedback |
+| Low | Progress tracking | History of past results |
+| Low | Theme options | Light/dark mode |
+| Low | Custom text mode | User can paste their own text |
+
+---
+
+## ✅ Kanban Board
+
+### To Do
+- Core typing engine  
+- Instructions page  
+- Difficulty selector  
+- Responsive layout  
+
+### In Progress
+- UI layout  
+- Real‑time error highlighting  
+
+### Done
+- Project setup  
+- Basic routing  
+
+---
+
+## ✅ UX Flow Diagram (Text-Based)
+
+```
+[Landing Page]
+   ↓
+[Instructions] → [Difficulty Selection]
+   ↓
+[Typing Test Screen]
+   ↓ (auto on timer end)
+[Results Screen]
+   ↓
+[Retry] or [Change Difficulty]
+```
+
+---
+
+## ✅ Feature Roadmap
+
+### ✅ Version 1.0 (MVP)
+- Core typing test  
+- Instructions  
+- Results screen  
+- Responsive layout  
+
+### ✅ Version 1.5
+- Difficulty levels  
+- Error highlighting  
+- Improved UI polish  
+
+### ✅ Version 2.0
+- Progress tracking  
+- Custom text mode  
+- Themes (light/dark)  
+
+### ✅ Version 3.0
+- User accounts  
+- Leaderboards  
+- Social sharing
+
+---
+#Wireframes
+ -----------------------------------------------------
+|                   TYPING SPEED TEST                 |
+|-----------------------------------------------------|
+|  [Start Test]   [How It Works]   [Choose Difficulty]|
+|-----------------------------------------------------|
+|   A clean, minimal intro with a short description   |
+|   “Improve your typing speed with quick, accurate   |
+|    tests designed for all skill levels.”            |
+ -----------------------------------------------------
+
+ -----------------------------------------------------
+|                     HOW IT WORKS                    |
+|-----------------------------------------------------|
+|  • The test starts when you begin typing            |
+|  • Type the text shown as accurately as possible    |
+|  • Your WPM and accuracy are calculated at the end  |
+|-----------------------------------------------------|
+|                     [Start Test]                    |
+ -----------------------------------------------------
+ -----------------------------------------------------
+|                 CHOOSE DIFFICULTY                   |
+|-----------------------------------------------------|
+|   [ Beginner ]   [ Intermediate ]   [ Advanced ]    |
+|-----------------------------------------------------|
+|   Short description under each option:              |
+|   Beginner: simple words                            |
+|   Intermediate: mixed sentences                     |
+|   Advanced: complex paragraphs                      |
+ -----------------------------------------------------
+ -----------------------------------------------------
+| Difficulty: Intermediate        Time: 00:45         |
+|-----------------------------------------------------|
+|  The quick brown fox jumps over the lazy dog...     |
+|-----------------------------------------------------|
+|  [ User typing input area here ]                    |
+|  Incorrect letters highlight in red                 |
+|-----------------------------------------------------|
+|                     [ End Test ]                    |
+ -----------------------------------------------------
+ -----------------------------------------------------
+|                     YOUR RESULTS                    |
+|-----------------------------------------------------|
+|   WPM:  72                                           |
+|   Accuracy: 94%                                      |
+|   Errors:  11                                        |
+|   Difficulty: Intermediate                           |
+|-----------------------------------------------------|
+|   [ Retry Test ]     [ Change Difficulty ]          |
+ -----------------------------------------------------
+
