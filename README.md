@@ -4,11 +4,11 @@
 
 | Image | Goal | Benefit |
 |:---------------------:|:------:|:---------:|
-| **Image &nbsp; 1**| ![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmd5l1MASeIm5lclMX-AWGWD16UDfJKq6Adg&s)| Image showing computer science |
-| **Image &nbsp; 2**         |![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6wmrEKqAJIlsu_B2ZBGUVvsx3IX8dwTFirQ&s)| Image showing a chip gold board |
-| **Image &nbsp; 3**|![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdijLmmVMFmLGZVtydj2MXZPHumUeXYMJCOg&s) | Image showing colourful cubes in relation to computer programming |
+| **Image 1 like its amazing woooo**| <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmd5l1MASeIm5lclMX-AWGWD16UDfJKq6Adg&s" width="700">| Image of a laptop <br>being amazin I guess after that its history</br> |
+| **Image 2** |![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6wmrEKqAJIlsu_B2ZBGUVvsx3IX8dwTFirQ&s)| Image showing a chip gold board |
+| **Image 3**|![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdijLmmVMFmLGZVtydj2MXZPHumUeXYMJCOg&s) | Image showing colourful cubes in relation to computer programming |
 
-
+![Computer Image](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmd5l1MASeIm5lclMX-AWGWD16UDfJKq6Adg&s)
 
 ![Computer Image](https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80)
 
