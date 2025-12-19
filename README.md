@@ -1,5 +1,7 @@
 # TypeRacer-
 
+![Computer Image](https://img.freepik.com/free-vector/laptop-with-program-code-isometric-icon-software-development-programming-applications-dark-neon_39422-971.jpg?semt=ais_hybrid&w=740&q=80)
+
 # User Stories
 ----
 ✅ Six User Stories + Acceptance Criteria
