@@ -26,6 +26,7 @@ results are displayed clearly and legibly
 **User Story:** As a user, I want clear instructions before starting the test so that I know how it works.
 
 **Acceptance Criteria**
+
 instructions appear on the test landing page
 
 instructions explain timing, scoring, and how to begin
@@ -40,6 +41,7 @@ instructions are visible on all device sizes
 **User Story:** As a user, I want a simple and intuitive interface so that I can take the test easily.
 
 **Acceptance Criteria**
+
 typing area is clearly visible and centered
 
 text to type is displayed above the input area
@@ -56,6 +58,7 @@ no unnecessary UI elements distract the user
 **User Story:** As a user, I want to choose a difficulty level so that the test matches my ability.
 
 **Acceptance Criteria**
+
 difficulty options include Beginner, Intermediate, and Advanced
 
 each difficulty loads a different text sample
@@ -70,6 +73,7 @@ selected difficulty is shown on the results screen
 **User Story:** As a user, I want the test to work on any device so that I can practice anywhere.
 
 **Acceptance Criteria**
+
 layout adapts to desktop, tablet, and mobile
 
 typing input works with physical and on‑screen keyboards
@@ -84,6 +88,7 @@ no horizontal scrolling is required
 **User Story:** As a user, I want accurate results so that I can trust my performance metrics.
 
 **Acceptance Criteria**
+
 WPM is calculated using standard formula
 
 accuracy percentage is shown
