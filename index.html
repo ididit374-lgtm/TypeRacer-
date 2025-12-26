@@ -21,6 +21,65 @@
         </div>
       </div>
     </header>
+    
+    <main>
+      <div class="container">
+        <div class="grid-container">
+          <div class="grid-left">
+            <h2>Typing Area</h2>
+            
+            <!-- Sample text to type -->
+            <div class="sample-text mb-4">
+              <p id="sampleText">The quick brown fox jumps over the lazy dog. Practice makes perfect, and typing speed improves with consistent effort and dedication.</p>
+            </div>
+            
+            <!-- Text box for typing -->
+            <div class="mb-3">
+              <textarea class="form-control" id="typingInput" rows="4" placeholder="Start typing here..."></textarea>
+            </div>
+            
+            <!-- Control buttons -->
+            <div class="button-group">
+              <button class="btn btn-success" id="startBtn">Start</button>
+              <button class="btn btn-danger" id="stopBtn">Stop</button>
+              <button class="btn btn-secondary" id="retryBtn">Retry</button>
+            </div>
+          </div>
+          <div class="grid-right">
+            <h2>Stats</h2>
+            <!-- Your stats/info content will go here -->
+            
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="difficultySelect">Select Difficulty</label>
+              <select class="form-select" id="difficultySelect">
+                <option selected>Choose...</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+            
+            <!-- Results Area -->
+            <div class="results-area">
+              <h3>Results</h3>
+              <div class="result-item">
+                <span class="result-label">Level:</span>
+                <span class="result-value" id="levelDisplay">-</span>
+              </div>
+              <div class="result-item">
+                <span class="result-label">Time:</span>
+                <span class="result-value" id="timeDisplay">0s</span>
+              </div>
+              <div class="result-item">
+                <span class="result-label">WPM:</span>
+                <span class="result-value" id="wpmDisplay">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist /js/bootstrap.min.js"></script>
     <script
       src="https://kit.fontawesome.com/YOUR-KIT-CODE-HERE.js"
