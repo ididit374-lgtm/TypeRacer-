@@ -48,11 +48,14 @@ let testStartTime = null;
 let testRunning = false;
 
 // Disable/enable buttons
-function setButtonStates(startDisabled, stopDisabled) {
+function setButtonStates(startDisabled) {
   const startBtn = document.getElementById('startBtn');
-  const stopBtn = document.getElementById('stopBtn');
   if (startBtn) startBtn.disabled = startDisabled;
-  if (stopBtn) stopBtn.disabled = stopDisabled;
+}
+
+function setRetryButtonEnabled(isEnabled) {
+  const retryBtn = document.getElementById('retryBtn');
+  if (retryBtn) retryBtn.disabled = !isEnabled;
 }
 
 // Update the Time display in Results area
@@ -171,7 +174,8 @@ function startTest() {
   if (testRunning) return;
   testStartTime = performance.now();
   testRunning = true;
-  setButtonStates(true, false); // disable Start, enable Stop
+  setButtonStates(true); // disable Start
+  setRetryButtonEnabled(false); // disable Retry while running
 
   clearTypingInput();
   enableTypingInput();
@@ -183,14 +187,12 @@ function startTest() {
   updateTimeDisplay(0);
 }
 
-// Stop the test: compute elapsed time and update UI
 function stopTest() {
   if (!testRunning || testStartTime === null) return;
   const elapsedMs = performance.now() - testStartTime;
   const elapsedSeconds = elapsedMs / 1000;
   updateTimeDisplay(elapsedSeconds);
 
-  // WPM calculation
   const sampleTextEl = document.getElementById('sampleText');
   const typingInputEl = document.getElementById('typingInput');
   const sampleText = sampleTextEl ? sampleTextEl.textContent || '' : '';
@@ -202,8 +204,46 @@ function stopTest() {
 
   testRunning = false;
   testStartTime = null;
-  setButtonStates(false, true); // enable Start, disable Stop
+  setButtonStates(false); // enable Start
+  setRetryButtonEnabled(true); // enable Retry after completion
   disableTypingInput();
+}
+
+function handleEnterKeyToStop(event) {
+  if (event.key === 'Enter' && testRunning) {
+    event.preventDefault();
+    stopTest();
+  }
+}
+
+function handleRetryTest() {
+  if (testRunning) return;
+
+  const difficulty = getSelectedDifficulty();
+  const validDifficulty = difficulty === 'easy' || difficulty === 'medium' || difficulty === 'hard';
+
+  if (validDifficulty) {
+    updateSampleText(difficulty);
+  } else {
+    const sampleTextElement = document.getElementById('sampleText');
+    if (sampleTextElement) {
+      renderSampleText(sampleTextElement.textContent || '');
+    }
+  }
+
+  startTest();
+}
+
+function setupInstructionsModal() {
+  const instructionsBtn = document.getElementById('instructionsBtn');
+  const modalElement = document.getElementById('instructionsModal');
+
+  if (!instructionsBtn || !modalElement || typeof bootstrap === 'undefined') return;
+
+  const instructionsModal = new bootstrap.Modal(modalElement);
+  instructionsBtn.addEventListener('click', function() {
+    instructionsModal.show();
+  });
 }
 
 // Initialize on page load
@@ -222,26 +262,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Hook up Start/Stop buttons and initial state
+  // Hook up Start button and initial state
   const startBtn = document.getElementById('startBtn');
-  const stopBtn = document.getElementById('stopBtn');
   const typingInput = document.getElementById('typingInput');
+  const retryBtn = document.getElementById('retryBtn');
 
-  if (startBtn && stopBtn) {
-    setButtonStates(false, true); // Stop disabled initially
+  if (startBtn) {
+    setButtonStates(false);
     startBtn.addEventListener('click', startTest);
-    stopBtn.addEventListener('click', stopTest);
   }
 
-  // Live feedback while typing
+  if (retryBtn) {
+    setRetryButtonEnabled(false);
+    retryBtn.addEventListener('click', handleRetryTest);
+  }
+
   if (typingInput) {
     typingInput.addEventListener('input', function() {
       applyTypingFeedback(this.value);
     });
+    typingInput.addEventListener('keydown', handleEnterKeyToStop); // stop on Enter
   }
 
   // Disable typing input until the test starts
   disableTypingInput();
+
+  setupInstructionsModal();
 
   // Render initial sample text based on current selection (if any)
   const initialLevel = getSelectedDifficulty();

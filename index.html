@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0 /dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
@@ -41,7 +41,6 @@
             <!-- Control buttons -->
             <div class="button-group">
               <button class="btn btn-success" id="startBtn">Start</button>
-              <button class="btn btn-danger" id="stopBtn">Stop</button>
               <button class="btn btn-secondary" id="retryBtn">Retry</button>
             </div>
           </div>
@@ -79,8 +78,34 @@
         </div>
       </div>
     </main>
+
+    <!-- Instructions Modal -->
+    <div class="modal fade" id="instructionsModal" tabindex="-1" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="instructionsModalLabel">How to take the typing test</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ol class="mb-3">
+              <li>Select a difficulty level: Easy, Medium, or Hard.</li>
+              <li>Click Start to load a sentence and enable the typing box.</li>
+              <li>Type the sentence shown. Live highlights show correct/incorrect words.</li>
+              <li>Press Enter when you finish typing to stop the timer and lock the box.</li>
+              <li>Review your results: Level, Time, and WPM.</li>
+              <li>Click Retry for a new sentence at the same difficulty, then continue practicing.</li>
+            </ol>
+            <p class="mb-0">Tip: Focus on accuracy first; speed will follow. You can change difficulty anytime before starting.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist /js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
     <script
       src="https://kit.fontawesome.com/YOUR-KIT-CODE-HERE.js"
       crossorigin="anonymous"
