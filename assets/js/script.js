@@ -42,6 +42,130 @@ function updateSampleText(difficulty) {
   }
 }
 
+// Timer state
+let testStartTime = null;
+let testRunning = false;
+
+// Disable/enable buttons
+function setButtonStates(startDisabled, stopDisabled) {
+  const startBtn = document.getElementById('startBtn');
+  const stopBtn = document.getElementById('stopBtn');
+  if (startBtn) startBtn.disabled = startDisabled;
+  if (stopBtn) stopBtn.disabled = stopDisabled;
+}
+
+// Update the Time display in Results area
+function updateTimeDisplay(seconds) {
+  const timeDisplay = document.getElementById('timeDisplay');
+  if (!timeDisplay) return;
+  const rounded = Number(seconds).toFixed(2);
+  timeDisplay.textContent = `${rounded}s`;
+}
+
+// Typing input helpers
+function clearTypingInput() {
+  const typingInput = document.getElementById('typingInput');
+  if (typingInput) typingInput.value = '';
+}
+
+function enableTypingInput() {
+  const typingInput = document.getElementById('typingInput');
+  if (typingInput) typingInput.disabled = false;
+}
+
+function disableTypingInput() {
+  const typingInput = document.getElementById('typingInput');
+  if (typingInput) typingInput.disabled = true;
+}
+
+// WPM helpers
+function getSelectedDifficulty() {
+  const select = document.getElementById('difficultySelect');
+  return select ? select.value : null;
+}
+
+function updateLevelDisplay() {
+  const levelDisplay = document.getElementById('levelDisplay');
+  if (!levelDisplay) return;
+  const level = getSelectedDifficulty();
+  levelDisplay.textContent = level
+    ? level.charAt(0).toUpperCase() + level.slice(1)
+    : '-';
+}
+
+function normalizeWord(word) {
+  // remove punctuation (keep letters, digits, underscore, apostrophes) and lowercase
+  return word.replace(/[^\w']+/g, '').toLowerCase();
+}
+
+function tokenizeText(text) {
+  return (text || '')
+    .trim()
+    .split(/\s+/)
+    .map(normalizeWord)
+    .filter(Boolean);
+}
+
+function calculateCorrectWords(sampleText, typedText) {
+  const sampleWords = tokenizeText(sampleText);
+  const typedWords = tokenizeText(typedText);
+  let correct = 0;
+  for (let i = 0; i < typedWords.length && i < sampleWords.length; i++) {
+    if (typedWords[i] === sampleWords[i]) correct++;
+  }
+  return correct;
+}
+
+function calculateWPM(correctWords, elapsedSeconds) {
+  if (!elapsedSeconds || elapsedSeconds <= 0) return 0;
+  const wpm = (correctWords / elapsedSeconds) * 60;
+  return Math.round(wpm);
+}
+
+function updateWPMDisplay(wpm) {
+  const wpmDisplay = document.getElementById('wpmDisplay');
+  if (wpmDisplay) wpmDisplay.textContent = String(wpm);
+}
+
+// Start the test: record start time and update buttons
+function startTest() {
+  if (testRunning) return;
+  testStartTime = performance.now();
+  testRunning = true;
+  setButtonStates(true, false); // disable Start, enable Stop
+
+  clearTypingInput();
+  enableTypingInput();
+
+  const typingInput = document.getElementById('typingInput');
+  if (typingInput) typingInput.focus();
+
+  updateTimeDisplay(0);
+}
+
+// Stop the test: compute elapsed time and update UI
+function stopTest() {
+  if (!testRunning || testStartTime === null) return;
+  const elapsedMs = performance.now() - testStartTime;
+  const elapsedSeconds = elapsedMs / 1000;
+  updateTimeDisplay(elapsedSeconds);
+
+  // WPM calculation
+  const sampleTextEl = document.getElementById('sampleText');
+  const typingInputEl = document.getElementById('typingInput');
+  const sampleText = sampleTextEl ? sampleTextEl.textContent || '' : '';
+  const typedText = typingInputEl ? typingInputEl.value || '' : '';
+  const correctWords = calculateCorrectWords(sampleText, typedText);
+  const wpm = calculateWPM(correctWords, elapsedSeconds);
+  updateWPMDisplay(wpm);
+  updateLevelDisplay();
+
+  testRunning = false;
+  testStartTime = null;
+  setButtonStates(false, true); // enable Start, disable Stop
+  disableTypingInput();
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
   const difficultySelect = document.getElementById('difficultySelect');
@@ -57,4 +181,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Hook up Start/Stop buttons and initial state
+  const startBtn = document.getElementById('startBtn');
+  const stopBtn = document.getElementById('stopBtn');
+
+  if (startBtn && stopBtn) {
+    setButtonStates(false, true); // Stop disabled initially
+    startBtn.addEventListener('click', startTest);
+    stopBtn.addEventListener('click', stopTest);
+  }
+
+  // Disable typing input until the test starts
+  disableTypingInput();
 });
