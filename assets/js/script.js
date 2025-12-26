@@ -34,7 +34,8 @@ function updateSampleText(difficulty) {
   
   if (sampleTextElement) {
     const newText = getRandomText(difficulty);
-    sampleTextElement.textContent = newText;
+    renderSampleText(newText);
+    clearTypingFeedback();
   }
   
   if (levelDisplayElement) {
@@ -127,6 +128,44 @@ function updateWPMDisplay(wpm) {
   if (wpmDisplay) wpmDisplay.textContent = String(wpm);
 }
 
+// --- Live accuracy feedback ---
+let sampleWordSpans = [];
+let sampleWordOriginals = [];
+let sampleWordNormalized = [];
+
+function renderSampleText(text) {
+  const el = document.getElementById('sampleText');
+  if (!el) return;
+  const words = (text || '').trim().split(/\s+/);
+  sampleWordOriginals = words;
+  sampleWordNormalized = words.map(normalizeWord);
+  const html = words.map((w, i) => `<span class="sample-word" data-index="${i}">${w}</span>`).join(' ');
+  el.innerHTML = html;
+  sampleWordSpans = Array.from(el.querySelectorAll('.sample-word'));
+}
+
+function clearTypingFeedback() {
+  sampleWordSpans.forEach(span => span.classList.remove('word-correct', 'word-incorrect'));
+}
+
+function applyTypingFeedback(typedText) {
+  const typedWords = (typedText || '').trim().split(/\s+/).map(normalizeWord);
+  for (let i = 0; i < sampleWordSpans.length; i++) {
+    const span = sampleWordSpans[i];
+    span.classList.remove('word-correct', 'word-incorrect');
+    if (i < typedWords.length) {
+      const typed = typedWords[i];
+      const expected = sampleWordNormalized[i];
+      if (!typed) continue;
+      if (typed === expected) {
+        span.classList.add('word-correct');
+      } else {
+        span.classList.add('word-incorrect');
+      }
+    }
+  }
+}
+
 // Start the test: record start time and update buttons
 function startTest() {
   if (testRunning) return;
@@ -136,6 +175,7 @@ function startTest() {
 
   clearTypingInput();
   enableTypingInput();
+  clearTypingFeedback();
 
   const typingInput = document.getElementById('typingInput');
   if (typingInput) typingInput.focus();
@@ -185,6 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Hook up Start/Stop buttons and initial state
   const startBtn = document.getElementById('startBtn');
   const stopBtn = document.getElementById('stopBtn');
+  const typingInput = document.getElementById('typingInput');
 
   if (startBtn && stopBtn) {
     setButtonStates(false, true); // Stop disabled initially
@@ -192,6 +233,25 @@ document.addEventListener('DOMContentLoaded', function() {
     stopBtn.addEventListener('click', stopTest);
   }
 
+  // Live feedback while typing
+  if (typingInput) {
+    typingInput.addEventListener('input', function() {
+      applyTypingFeedback(this.value);
+    });
+  }
+
   // Disable typing input until the test starts
   disableTypingInput();
+
+  // Render initial sample text based on current selection (if any)
+  const initialLevel = getSelectedDifficulty();
+  if (initialLevel === 'easy' || initialLevel === 'medium' || initialLevel === 'hard') {
+    updateSampleText(initialLevel);
+  } else {
+    // Fallback: render current text content into spans
+    const sampleTextElement = document.getElementById('sampleText');
+    if (sampleTextElement) {
+      renderSampleText(sampleTextElement.textContent || '');
+    }
+  }
 });
